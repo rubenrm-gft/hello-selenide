@@ -44,6 +44,7 @@ test {
     systemProperties["selenide.remote"]="http://localhost:4444/wd/hub";
     systemProperties["selenide.browser"]="chrome";
     systemProperties["selenide.browserVersion"]="97.0"
+    systemProperties["selenide.browserSize"]="600x800";
     ignoreFailures = true
     useJUnitPlatform()
 }

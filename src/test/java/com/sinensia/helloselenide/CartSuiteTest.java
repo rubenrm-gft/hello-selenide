@@ -16,7 +16,6 @@ public class CartSuiteTest {
 
     @BeforeAll
     public static void setUpAll() {
-        Configuration.browserSize = "1280x800";
         SelenideLogger.addListener("allure", new AllureSelenide().screenshots(true).savePageSource(false));
 
         DesiredCapabilities capabilites = new DesiredCapabilities();

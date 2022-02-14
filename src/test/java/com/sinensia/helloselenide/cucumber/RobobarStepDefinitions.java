@@ -26,7 +26,6 @@ public class RobobarStepDefinitions {
     @Given("user opens robobar website")
     @Given("l'usuari entra al bar")
     public void openRobobar() {
-        Configuration.browserSize = "1280x800";
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(false)
