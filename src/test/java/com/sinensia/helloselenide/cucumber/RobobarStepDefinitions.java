@@ -33,7 +33,7 @@ public class RobobarStepDefinitions {
 
         DesiredCapabilities capabilites = new DesiredCapabilities();
         capabilites.setCapability("enableVNC", true);
-        capabilites.setCapability("enableVideo", true);
+        // capabilites.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilites;
 
         open("/");
