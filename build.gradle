@@ -1,6 +1,9 @@
 plugins {
     id 'java'
     id 'io.qameta.allure' version '2.9.3'
+    id 'jacoco'
+    id 'pmd'
+    id 'info.solidsoft.pitest' version '1.7.0'
 }
 
 group 'com.sinensia'
@@ -8,6 +11,29 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+    }
+}
+
+pmd {
+    consoleOutput = true
+    ignoreFailures = true
+}
+
+pitest {
+    junit5PluginVersion = '0.12'
+    outputFormats = ['XML', 'HTML']
+    timestampedReports = false
 }
 
 ext {
