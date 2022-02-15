@@ -3,7 +3,6 @@ plugins {
     id 'io.qameta.allure' version '2.9.3'
     id 'jacoco'
     id 'pmd'
-    id 'info.solidsoft.pitest' version '1.7.0'
 }
 
 group 'com.sinensia'
@@ -11,11 +10,6 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-}
-
-tasks.named('test') {
-    useJUnitPlatform()
-    finalizedBy jacocoTestReport
 }
 
 jacocoTestReport {
@@ -30,11 +24,6 @@ pmd {
     ignoreFailures = true
 }
 
-pitest {
-    junit5PluginVersion = '0.12'
-    outputFormats = ['XML', 'HTML']
-    timestampedReports = false
-}
 
 ext {
     allureVersion = '2.16.1'
@@ -66,7 +55,7 @@ dependencies {
 }
 
 tasks.withType(Test) {
-    systemProperties["selenide.baseUrl"]="https://robobar.sinensia.pw"
+    systemProperties["selenide.baseUrl"]="http://10.250.5.2:3000"
     systemProperties["selenide.remote"]="http://localhost:4444/wd/hub";
     systemProperties["selenide.browser"]="chrome";
     //systemProperties["selenide.browserVersion"]="97.0"
