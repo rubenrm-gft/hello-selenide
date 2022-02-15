@@ -55,7 +55,7 @@ dependencies {
 }
 
 tasks.withType(Test) {
-    systemProperties["selenide.baseUrl"]="http://10.250.5.2:3000"
+    systemProperties["selenide.baseUrl"]="https://robobar.sinensia.pw"
     systemProperties["selenide.remote"]="http://localhost:4444/wd/hub";
     systemProperties["selenide.browser"]="chrome";
     //systemProperties["selenide.browserVersion"]="97.0"
