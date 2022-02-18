@@ -1,8 +1,7 @@
 plugins {
     id 'java'
     id 'io.qameta.allure' version '2.9.3'
-    id 'jacoco'
-    id 'pmd'
+
 }
 
 group 'com.sinensia'
@@ -10,18 +9,6 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-}
-
-jacocoTestReport {
-    dependsOn test
-    reports {
-        xml.required = true
-    }
-}
-
-pmd {
-    consoleOutput = true
-    ignoreFailures = true
 }
 
 
@@ -60,11 +47,12 @@ tasks.withType(Test) {
     systemProperties["selenide.browser"]="chrome";
     //systemProperties["selenide.browserVersion"]="97.0"
     systemProperties["selenide.browserSize"]="1024x768";
+    ignoreFailures = true
+    useJUnitPlatform()
 }
 
 test {
-    ignoreFailures = true
-    useJUnitPlatform()
+
 }
 
 task testFirefox (type:Test) {
